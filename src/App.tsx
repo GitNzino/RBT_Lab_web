@@ -144,6 +144,7 @@ const COPY = {
       subjectPh: "What is your request about?",
       message: "Your message",
       messagePh: "What would you like to talk to RBT Lab about?",
+      messagePhLighthouse: "Tell us about your problem so we can understand how to solve it.",
       messagePhInvestor: "Tell us how you'd like to support RBT Lab: ticket size, expertise, or the kind of partnership you have in mind.",
       submit: "Send request",
       sending: "Sending...",
@@ -241,6 +242,7 @@ const COPY = {
       subjectPh: "Di cosa tratta la tua richiesta?",
       message: "Il tuo messaggio",
       messagePh: "Di cosa vuoi parlare a RBT Lab?",
+      messagePhLighthouse: "Raccontaci del tuo problema per aiutarci a capire come risolverlo.",
       messagePhInvestor: "Raccontaci come vorresti aiutarci: taglio d'investimento, competenze o il tipo di partnership che hai in mente.",
       submit: "Invia richiesta",
       sending: "Invio...",
@@ -376,8 +378,8 @@ export default function App() {
     </li>
   );
 
-  const [contactMode, setContactMode] = useState<"customer" | "investor">("customer");
-  const openContact = (mode: "customer" | "investor" = "customer") => { setContactMode(mode); setFormSubmitted(false); setModalOpen(true); };
+  const [contactMode, setContactMode] = useState<"contact" | "lighthouse" | "investor">("contact");
+  const openContact = (mode: "contact" | "lighthouse" | "investor" = "contact") => { setContactMode(mode); setFormSubmitted(false); setModalOpen(true); };
   const contactModal = modalOpen && (
         <div className="nc-modal-overlay" onClick={() => setModalOpen(false)}>
           <div className="nc-modal-container" onClick={(e) => e.stopPropagation()}>
@@ -426,7 +428,7 @@ export default function App() {
 
                 <div className="nc-form-group">
                   <label className="nc-form-label">{t.modal.message}</label>
-                  <textarea className="nc-form-input nc-form-textarea" rows={4} placeholder={contactMode === "investor" ? t.modal.messagePhInvestor : t.modal.messagePh}
+                  <textarea className="nc-form-input nc-form-textarea" rows={4} placeholder={contactMode === "investor" ? t.modal.messagePhInvestor : contactMode === "lighthouse" ? t.modal.messagePhLighthouse : t.modal.messagePh}
                     value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
                 </div>
 
@@ -675,7 +677,7 @@ export default function App() {
           <div className="nc-cta-box">
             <h2 className="nc-cta-title">{t.cta.title}</h2>
             <p className="nc-cta-sub">{t.cta.sub}</p>
-            <button className="nc-btn-cta-big" onClick={() => openContact()}>
+            <button className="nc-btn-cta-big" onClick={() => openContact("lighthouse")}>
               {t.cta.button}
             </button>
           </div>
