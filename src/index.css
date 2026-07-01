@@ -821,3 +821,7 @@ textarea.nc-form-textarea { resize: vertical; min-height: 104px; font-family: in
 .inv-donut .inv-seg { transition: stroke-width 0.25s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; }
 .inv-legend li { cursor: pointer; }
 .inv-legend-l { transition: color 0.2s ease, transform 0.2s ease; transform-origin: left center; display: inline-block; }
+
+/* Investor hero: prominent back-to-site link (keeps the mobile top bar clean) */
+.inv-hero-back { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border: 1px solid rgba(255,255,255,0.16); border-radius: 9999px; color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 600; transition: all 0.25s ease; align-self: center; }
+.inv-hero-back:hover { color: #fff; border-color: var(--mint); box-shadow: 0 6px 18px rgba(0,247,199,0.12); transform: translateY(-1px); }

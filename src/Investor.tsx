@@ -171,9 +171,6 @@ export default function Investor({ lang, setLang, goHome, onContact }: { lang: L
             RBT Lab<span className="nc-logo-dot">.</span>
           </a>
           <div className="nc-nav-actions">
-            <a href="/" onClick={(e) => { e.preventDefault(); goHome(); }} className="nc-nav-link inv-back">
-              <ArrowLeft size={15} /> {t.back}
-            </a>
             <div className="nc-lang-toggle" role="group" aria-label="Language">
               <button className={`nc-lang-btn ${lang === "en" ? "active" : ""}`} onClick={() => setLang("en")}>EN</button>
               <button className={`nc-lang-btn ${lang === "it" ? "active" : ""}`} onClick={() => setLang("it")}>IT</button>
@@ -188,6 +185,7 @@ export default function Investor({ lang, setLang, goHome, onContact }: { lang: L
         <div className="nc-ribbon nc-ribbon-violet" style={{ top: "-180px", right: "-160px" }}></div>
         <div className="nc-ribbon nc-ribbon-mint" style={{ bottom: "-240px", left: "-200px" }}></div>
         <div className="nc-container inv-hero-inner">
+          <a href="/" onClick={(e) => { e.preventDefault(); goHome(); }} className="inv-hero-back"><ArrowLeft size={16} /> {t.back}</a>
           <span className="nc-tag-capsule"><span className="nc-tag-dot"></span>{t.heroEyebrow}</span>
           <h1 className="nc-hero-title inv-hero-title">{t.heroTitle.split(" ").slice(0, -1).join(" ")} <span className="nc-highlight-gradient">{t.heroTitle.split(" ").slice(-1)}</span></h1>
           <p className="nc-hero-subtitle inv-hero-sub">{t.heroSub}</p>
