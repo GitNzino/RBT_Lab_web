@@ -4,7 +4,7 @@
  */
 
 import { useState } from "react";
-import { ArrowLeft, ArrowRight, Check, Banknote, FileSignature, CalendarClock } from "lucide-react";
+import { ArrowLeft, Check, Banknote, FileSignature, CalendarClock } from "lucide-react";
 // @ts-ignore
 import markWhite from "./assets/logos/rbt-mark-white.png";
 // @ts-ignore
@@ -368,7 +368,7 @@ export default function Investor({ lang, setLang, goHome, onContact }: { lang: L
           <div className="nc-cta-box">
             <h2 className="nc-cta-title">{t.ctaTitle}</h2>
             <p className="nc-cta-sub" style={{ whiteSpace: "normal" }}>{t.ctaSub}</p>
-            <button className="nc-btn-cta-big" onClick={onContact}>{t.ctaButton} <ArrowRight size={18} /></button>
+            <button className="nc-btn-cta-big" onClick={onContact}>{t.ctaButton}</button>
           </div>
           <div className="nc-micro-footer">
             <div className="nc-footer-brand">
