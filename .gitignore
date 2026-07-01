@@ -1,0 +1,17 @@
+node_modules/
+build/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+dist*/
+
+
+# Source assets kept locally but not published to the repo
+*.pptx
+PNG/
+metadata.json
+src/assets/images/neocollab_*
+src/assets/logos/rbt-mark-mint.png
+src/assets/logos/rbt-mark-purple.png
