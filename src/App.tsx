@@ -49,7 +49,7 @@ const TEAM = [
   { name: "Fabio Calebrano", roleEn: "Chief Executive Officer", roleIt: "Chief Executive Officer", initials: "FC" },
   { name: "Lorenzo Baglieri", roleEn: "Chief Technical Officer & PhD in Robotics", roleIt: "Chief Technical Officer & PhD in Robotics", initials: "LB" },
   { name: "Davide Calebrano", roleEn: "Chief Financial Officer", roleIt: "Chief Financial Officer", initials: "DC" },
-  // { name: "Giuliano Canzonieri", roleEn: "Head of Software & Embedded Engineering", roleIt: "Head of Software & Embedded Engineering", initials: "GC" },  // TODO: riattivare in futuro
+  { name: "Giuliano Canzonieri", roleEn: "Head of Software & Embedded Engineering", roleIt: "Head of Software & Embedded Engineering", initials: "GC" },
   // { name: "Guglielmo Donzella", roleEn: "Head of Control Systems Engineering", roleIt: "Head of Control Systems Engineering", initials: "GD" },  // TODO: riattivare in futuro
   { name: "Silvia Treccarichi", roleEn: "Business Strategy Advisor", roleIt: "Business Strategy Advisor", initials: "ST" },
 ];
