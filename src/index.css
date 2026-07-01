@@ -822,6 +822,8 @@ textarea.nc-form-textarea { resize: vertical; min-height: 104px; font-family: in
 .inv-legend li { cursor: pointer; }
 .inv-legend-l { transition: color 0.2s ease, transform 0.2s ease; transform-origin: left center; display: inline-block; }
 
-/* Investor hero: prominent back-to-site link (keeps the mobile top bar clean) */
-.inv-hero-back { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border: 1px solid rgba(255,255,255,0.16); border-radius: 9999px; color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 600; transition: all 0.25s ease; align-self: center; }
-.inv-hero-back:hover { color: #fff; border-color: var(--mint); box-shadow: 0 6px 18px rgba(0,247,199,0.12); transform: translateY(-1px); }
+/* Investor: floating "back to site" button (bottom-right, keeps top bar clean) */
+.inv-back-fab { position: fixed; bottom: 22px; right: 22px; z-index: 1500; display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 9999px; background: var(--gradient-primary); color: #fff; text-decoration: none; font-size: 14px; font-weight: 700; box-shadow: 0 8px 24px rgba(124,0,214,0.4); transition: all 0.25s ease; }
+.inv-back-fab:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(166,82,255,0.5); }
+@media (max-width: 560px) { .inv-back-fab { bottom: 16px; right: 16px; padding: 11px 16px; font-size: 13px; } }
+.inv-back-fab .inv-fab-label { white-space: pre-line; text-align: left; line-height: 1.15; }

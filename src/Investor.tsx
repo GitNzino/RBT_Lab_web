@@ -32,6 +32,7 @@ const TEAM = [
 const INV = {
   en: {
     back: "Back to site",
+    backHome: "Back to the\nhomepage",
     contact: "Get in touch",
     heroEyebrow: "Investor Relations",
     heroTitle: "Invest in RBT Lab",
@@ -82,6 +83,7 @@ const INV = {
   },
   it: {
     back: "Torna al sito",
+    backHome: "Torna alla\nhomepage",
     contact: "Contattaci",
     heroEyebrow: "Investor Relations",
     heroTitle: "Investi in RBT Lab",
@@ -185,7 +187,6 @@ export default function Investor({ lang, setLang, goHome, onContact }: { lang: L
         <div className="nc-ribbon nc-ribbon-violet" style={{ top: "-180px", right: "-160px" }}></div>
         <div className="nc-ribbon nc-ribbon-mint" style={{ bottom: "-240px", left: "-200px" }}></div>
         <div className="nc-container inv-hero-inner">
-          <a href="/" onClick={(e) => { e.preventDefault(); goHome(); }} className="inv-hero-back"><ArrowLeft size={16} /> {t.back}</a>
           <span className="nc-tag-capsule"><span className="nc-tag-dot"></span>{t.heroEyebrow}</span>
           <h1 className="nc-hero-title inv-hero-title">{t.heroTitle.split(" ").slice(0, -1).join(" ")} <span className="nc-highlight-gradient">{t.heroTitle.split(" ").slice(-1)}</span></h1>
           <p className="nc-hero-subtitle inv-hero-sub">{t.heroSub}</p>
@@ -377,6 +378,10 @@ export default function Investor({ lang, setLang, goHome, onContact }: { lang: L
           </div>
         </div>
       </footer>
+
+      <a href="/" onClick={(e) => { e.preventDefault(); goHome(); }} className="inv-back-fab" aria-label={t.backHome}>
+        <ArrowLeft size={18} /> <span className="inv-fab-label">{t.backHome}</span>
+      </a>
     </div>
   );
 }
