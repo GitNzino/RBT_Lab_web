@@ -83,6 +83,8 @@ body {
   opacity: 0.5;
   pointer-events: none;
   z-index: 0;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 .nc-ribbon-violet { background: radial-gradient(circle, rgba(124,0,214,0.45) 0%, rgba(124,0,214,0) 70%); }
 .nc-ribbon-mint   { background: radial-gradient(circle, rgba(0,247,199,0.18) 0%, rgba(0,247,199,0) 70%); }
@@ -95,9 +97,7 @@ body {
   position: fixed;
   top: 0; left: 0; right: 0;
   height: 74px;
-  background-color: rgba(5, 5, 9, 0.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background-color: rgba(5, 5, 9, 0.94);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   z-index: 1000;
   display: flex;
