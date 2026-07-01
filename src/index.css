@@ -79,8 +79,8 @@ body {
   width: 620px;
   height: 620px;
   border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.5;
+  filter: blur(64px);
+  opacity: 0.55;
   pointer-events: none;
   z-index: 0;
   transform: translateZ(0);
