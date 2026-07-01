@@ -214,7 +214,7 @@ const COPY = {
         { name: "Presa semi", desc: "End effector con retroazione che conferma ogni presa prima di proseguire.", icon: "sprout" },
       ],
       features: [
-        { h: "Sicuro per progettazione", t: "La rilevazione della presenza e della posizione dell'uomo permette di condividere lo stesso spazio, senza gabbie.", icon: "shield" },
+        { h: "Progettato per essere sicuro", t: "La rilevazione della presenza e della posizione dell'uomo permette di condividere lo stesso spazio, senza gabbie.", icon: "shield" },
         { h: "Plug and deploy", t: "I moduli validati riducono mesi di integrazione a un'installazione guidata. Nessuna reingegnerizzazione del tuo processo.", icon: "workflow" },
         { h: "Riutilizzabile e scalabile", t: "Ogni modulo è riutilizzabile tra processi e settori, così ogni installazione moltiplica il valore della precedente.", icon: "cpu" },
       ],
