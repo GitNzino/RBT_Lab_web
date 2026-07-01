@@ -36,14 +36,10 @@ jobs:
       - name: Copy CNAME to dist
         run: cp CNAME dist/
 
-      - name: Create /investor route with dedicated SEO meta
+      - name: Create /investor route (canonical points to the homepage)
         run: |
           mkdir -p dist/investor
-          sed \
-            -e 's#https://www.rbtlab.tech/"#https://www.rbtlab.tech/investor/"#g' \
-            -e 's#RBT Lab - Think Human. Act Robotic.#Invest in RBT Lab - Investor Relations#g' \
-            -e 's#Validated, collaborative robotic modules that give SMEs affordable automation without integration risk.#Invest in RBT Lab: collaborative robotics for SMEs, with market sizing, positioning and the current funding round.#g' \
-            dist/index.html > dist/investor/index.html
+          cp dist/index.html dist/investor/index.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
