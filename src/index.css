@@ -38,6 +38,12 @@
   --gradient-cta: radial-gradient(circle at bottom center, rgba(124, 0, 214, 0.22) 0%, rgba(166, 82, 255, 0.06) 45%, #050509 100%);
 }
 
+html {
+  background-color: var(--bg);
+}
+
+html, body { overscroll-behavior-y: none; }
+
 body {
   font-family: var(--nc-font-sans);
   background-color: var(--bg);
