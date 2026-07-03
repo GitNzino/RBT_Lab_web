@@ -27,10 +27,10 @@ import markWhite from "./assets/logos/rbt-mark-white.png";
 // @ts-ignore
 import lockupWhite from "./assets/logos/rbt-lockup-white.png";
 // @ts-ignore
-import roboticArmImg from "./assets/images/rbt_lab_rob_arm_1781019708423.png";
+import roboticArmImg from "./assets/images/rbt-underside-vision.jpg";
 
-// Tech section uses real robotics photography (Unsplash, free to use license).
-const embodiedAiImg = "https://images.unsplash.com/photo-1606206873764-fd15e242df52?q=80&w=1400&auto=format&fit=crop";
+// @ts-ignore
+import embodiedAiImg from "./assets/images/rbt-seed-tray.jpg";
 
 type Lang = "en" | "it";
 
@@ -522,7 +522,7 @@ export default function App() {
 
             <div className="nc-hero-right">
               <div className="nc-image-frame">
-                <img src={roboticArmImg} alt="RBT Lab collaborative robotic arm" referrerPolicy="no-referrer" />
+                <img src={roboticArmImg} alt="RBT Lab end effector and vision module, underside view" referrerPolicy="no-referrer" />
               </div>
             </div>
           </div>
@@ -640,7 +640,7 @@ export default function App() {
                 </div>
               </div>
               <div className="nc-tech-img">
-                <img src={embodiedAiImg} alt="RBT Lab modular robotic system" referrerPolicy="no-referrer" />
+                <img src={embodiedAiImg} alt="RBT Lab seed tray and end effector" referrerPolicy="no-referrer" />
               </div>
             </div>
           </div>
