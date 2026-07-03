@@ -810,8 +810,8 @@ textarea.nc-form-textarea { resize: vertical; min-height: 104px; font-family: in
 .inv-legend-p { font-weight: 700; color: #fff; font-family: var(--nc-font-mono); font-size: 13px; }
 
 /* Hero button colour variants (site palette) */
-.nc-btn-team { background: linear-gradient(120deg, #ff8a5c 0%, #ff5d7a 100%); color: #ffffff; box-shadow: 0 6px 22px rgba(255,93,122,0.3); }
-.nc-btn-team:hover { box-shadow: 0 12px 30px rgba(255,93,122,0.5); }
+.nc-btn-team { background: transparent; color: #ff8a5c; border: 1.5px solid #ff8a5c; box-shadow: none; }
+.nc-btn-team:hover { background: rgba(255,138,92,0.10); color: #ff8a5c; box-shadow: 0 8px 24px rgba(255,138,92,0.22); }
 .nc-btn-invest { background: linear-gradient(120deg, #00f7c7 0%, #00c9a4 100%); color: #05231c; box-shadow: 0 6px 22px rgba(0,247,199,0.3); }
 .nc-btn-invest:hover { box-shadow: 0 12px 30px rgba(0,247,199,0.45); }
 
