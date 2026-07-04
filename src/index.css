@@ -782,7 +782,7 @@ textarea.nc-form-textarea { resize: vertical; min-height: 104px; font-family: in
 .inv-dot-us { fill: #00f7c7; font-family: var(--nc-font-sans); font-size: 16px; font-weight: 800; }
 
 /* Investment */
-.inv-ask-row { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 20px; margin-bottom: 28px; position: relative; z-index: 2; }
+.inv-ask-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 28px; position: relative; z-index: 2; }
 @media (max-width: 768px) { .inv-ask-row { grid-template-columns: 1fr; } }
 .inv-ask-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 8px; transition: all 0.35s ease; }
 .inv-ask-card svg { color: var(--mint); }
