@@ -37,7 +37,7 @@ const INV = {
     heroEyebrow: "Investor Relations",
     heroTitle: "Invest in RBT Lab",
     heroSub: "Collaborative robotics for SMEs, in a market driven by structural labour shortages and reshoring. We turn an unsolved bottleneck into a scalable, royalty generating product.",
-    heroAsk: "Raising €300K to €500K",
+    heroAsk: "Raising €350K",
     heroAskLabel: "SAFE, closing Q2 2027",
     mEyebrow: "Size of Market",
     mTitle: "A large and fast growing market",
@@ -46,7 +46,7 @@ const INV = {
     cagrLabel: "Global collaborative robotics",
     tam: { v: "€3.8B", l: "TAM", d: "Global collaborative robotics market" },
     sam: { v: "€1.1B", l: "SAM", d: "European SME manufacturing" },
-    som: { v: "€15M", l: "SOM", d: "5 EU markets by 2031" },
+    som: { v: "€13M", l: "SOM", d: "5 EU markets by 2031" },
     pEyebrow: "Competition & Positioning",
     pTitle: "The only one that refuses the trade off",
     pLead: "Everyone else forces a trade off: open but enterprise, or affordable but locked in. RBT Lab refuses it, open architecture, built for SMEs.",
@@ -59,7 +59,7 @@ const INV = {
     otherB: "Locked in SME kits",
     iEyebrow: "Investment",
     iTitle: "What RBT Lab asks",
-    askValue: "€300K to €500K",
+    askValue: "€350K",
     terms: "SAFE",
     termsLabel: "Terms",
     timing: "Q2 2027 close",
@@ -88,7 +88,7 @@ const INV = {
     heroEyebrow: "Investor Relations",
     heroTitle: "Investi in RBT Lab",
     heroSub: "Robotica collaborativa per le PMI, in un mercato trainato dalla carenza strutturale di manodopera e dal reshoring. Trasformiamo un collo di bottiglia irrisolto in un prodotto scalabile che genera royalty.",
-    heroAsk: "Raccolta da €300K a €500K",
+    heroAsk: "Raccolta di €350K",
     heroAskLabel: "SAFE, chiusura Q2 2027",
     mEyebrow: "Dimensione di Mercato",
     mTitle: "Un mercato ampio e in rapida crescita",
@@ -97,7 +97,7 @@ const INV = {
     cagrLabel: "Robotica collaborativa globale",
     tam: { v: "€3.8B", l: "TAM", d: "Mercato globale della robotica collaborativa" },
     sam: { v: "€1.1B", l: "SAM", d: "Manifattura PMI europea" },
-    som: { v: "€15M", l: "SOM", d: "5 mercati UE entro il 2031" },
+    som: { v: "€13M", l: "SOM", d: "5 mercati UE entro il 2031" },
     pEyebrow: "Competizione & Posizionamento",
     pTitle: "Gli unici a rifiutare il compromesso",
     pLead: "Tutti gli altri impongono un compromesso: aperti ma enterprise, oppure accessibili ma vincolati. RBT Lab lo rifiuta, architettura aperta, pensata per le PMI.",
@@ -110,7 +110,7 @@ const INV = {
     otherB: "Kit PMI vincolati",
     iEyebrow: "Investimento",
     iTitle: "Cosa chiede RBT Lab",
-    askValue: "€300K a €500K",
+    askValue: "€350K",
     terms: "SAFE",
     termsLabel: "Strumento",
     timing: "Chiusura Q2 2027",
@@ -217,7 +217,7 @@ export default function Investor({ lang, setLang, goHome, onContact }: { lang: L
                 <circle className="inv-ring" cx="160" cy="160" r="60" fill="rgba(0,247,199,0.16)" stroke="rgba(0,247,199,0.65)" strokeWidth="1.5" />
                 <text x="160" y="40" textAnchor="middle" className="inv-ring-label" fill="#a652ff">TAM €3.8B</text>
                 <text x="160" y="90" textAnchor="middle" className="inv-ring-label" fill="#ff5d7a">SAM €1.1B</text>
-                <text x="160" y="168" textAnchor="middle" className="inv-ring-label" fill="#00f7c7">SOM €15M</text>
+                <text x="160" y="168" textAnchor="middle" className="inv-ring-label" fill="#00f7c7">SOM €13M</text>
               </svg>
             </div>
             <div className="inv-market-cards">
