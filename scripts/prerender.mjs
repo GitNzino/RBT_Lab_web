@@ -5,7 +5,7 @@
  * How it works: serve dist/ statically, load it in headless Chrome, wait for React
  * to render, then dump the fully rendered DOM back into dist/index.html. The build
  * output (script/style tags) is untouched, so React still boots and takes over the
- * page normally for real visitors — this only changes what a non-JS crawler sees.
+ * page normally for real visitors, this only changes what a non-JS crawler sees.
  */
 import express from 'express';
 import puppeteer from 'puppeteer';
