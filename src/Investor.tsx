@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState } from "react";
+import { useState, KeyboardEvent } from "react";
 import { ArrowLeft, Check, Banknote, FileSignature, CalendarClock } from "lucide-react";
 // @ts-ignore
 import markWhite from "./assets/logos/rbt-mark-white.png";
@@ -21,12 +21,12 @@ const PROCEEDS = [
 ];
 
 const TEAM = [
-  { name: "Fabio Calebrano", roleEn: "Chief Executive Officer", roleIt: "Chief Executive Officer", initials: "FC" },
-  { name: "Lorenzo Baglieri", roleEn: "Chief Technical Officer & PhD in Robotics", roleIt: "Chief Technical Officer & PhD in Robotics", initials: "LB" },
-  { name: "Davide Calebrano", roleEn: "Chief Financial Officer", roleIt: "Chief Financial Officer", initials: "DC" },
-  { name: "Giuliano Canzonieri", roleEn: "Head of Software & Embedded Engineering", roleIt: "Head of Software & Embedded Engineering", initials: "GC" },
-  // { name: "Guglielmo Donzella", roleEn: "Head of Control Systems Engineering", roleIt: "Head of Control Systems Engineering", initials: "GD" },  // TODO: riattivare in futuro
-  { name: "Silvia Treccarichi", roleEn: "Business Strategy Advisor", roleIt: "Business Strategy Advisor", initials: "ST" },
+  { name: "Fabio Calebrano", roleEn: "Chief Executive Officer", roleIt: "Chief Executive Officer", initials: "FC", linkedin: "https://www.linkedin.com/in/fabio-calebrano/", linkedinActive: true },
+  { name: "Lorenzo Baglieri", roleEn: "Chief Technical Officer & PhD in Robotics", roleIt: "Chief Technical Officer & PhD in Robotics", initials: "LB", linkedin: "https://www.linkedin.com/in/lorenzo-baglieri/", linkedinActive: true },
+  { name: "Davide Calebrano", roleEn: "Chief Financial Officer", roleIt: "Chief Financial Officer", initials: "DC", linkedin: "https://www.linkedin.com/in/davidecalebrano/", linkedinActive: true },
+  { name: "Giuliano Canzonieri", roleEn: "Head of Software & Embedded Engineering", roleIt: "Head of Software & Embedded Engineering", initials: "GC", linkedin: "https://www.linkedin.com/in/giuliano-canzonieri-712186251/", linkedinActive: false },
+  // { name: "Guglielmo Donzella", roleEn: "Head of Control Systems Engineering", roleIt: "Head of Control Systems Engineering", initials: "GD", linkedin: "https://www.linkedin.com/in/guglielmo-donzella-38698962/", linkedinActive: false },  // TODO: riattivare in futuro
+  { name: "Silvia Treccarichi", roleEn: "Business Strategy Advisor", roleIt: "Business Strategy Advisor", initials: "ST", linkedin: "https://www.linkedin.com/in/silvia-treccarichi/", linkedinActive: false },
 ];
 
 const INV = {
@@ -348,7 +348,24 @@ export default function Investor({ lang, setLang, goHome, onContact }: { lang: L
           </div>
           <div className="nc-team-grid">
             {TEAM.map((m, i) => (
-              <div className="nc-team-card" key={i}>
+              <div
+                className={`nc-team-card${m.linkedinActive ? " nc-team-card--linked" : ""}`}
+                key={i}
+                {...(m.linkedinActive
+                  ? {
+                      role: "link",
+                      tabIndex: 0,
+                      onClick: () => window.open(m.linkedin, "_blank", "noopener,noreferrer"),
+                      onKeyDown: (e: KeyboardEvent) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          window.open(m.linkedin, "_blank", "noopener,noreferrer");
+                        }
+                      },
+                      "aria-label": `${m.name} su LinkedIn`,
+                    }
+                  : {})}
+              >
                 <div className="nc-avatar">{m.initials}</div>
                 <div>
                   <h3 className="nc-team-name">{m.name}</h3>
