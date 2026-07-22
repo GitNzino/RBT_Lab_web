@@ -37,8 +37,6 @@ const INV = {
     heroEyebrow: "Investor Relations",
     heroTitle: "Invest in RBT Lab",
     heroSub: "Collaborative robotics for SMEs, in a market driven by structural labour shortages and reshoring. We turn an unsolved bottleneck into a scalable, royalty generating product.",
-    heroAsk: "Raising €350K",
-    heroAskLabel: "SAFE, closing Q2 2027",
     mEyebrow: "Size of Market",
     mTitle: "A large and fast growing market",
     mNote: "Driven by structural labour shortages and reshoring. Entry through Italy, scaling across Europe.",
@@ -73,12 +71,12 @@ const INV = {
       "Focus on new modules design",
     ],
     proceedsTitle: "Use of proceeds",
+    investorKitCta: "Become an Investor",
     teamEyebrow: "The Founders",
     teamTitle: "Meet the team",
     teamSub: "The minds building RBT Lab: engineering, research and strategy under one roof.",
-    ctaTitle: "Let's build the future of collaborative robotics.",
-    ctaSub: "Want the full deck and data room? Reach out and we will walk you through it.",
-    ctaButton: "Get in touch",
+    investorKitTitle: "Request the Investor Kit",
+    investorKitTeaser: "Request the Investor Kit, with the Business Plan, Financial Plan and Letter of Intent, to evaluate and subscribe the investment.",
     mailSubject: "Investment enquiry, RBT Lab",
   },
   it: {
@@ -88,8 +86,6 @@ const INV = {
     heroEyebrow: "Investor Relations",
     heroTitle: "Investi in RBT Lab",
     heroSub: "Robotica collaborativa per le PMI, in un mercato trainato dalla carenza strutturale di manodopera e dal reshoring. Trasformiamo un collo di bottiglia irrisolto in un prodotto scalabile che genera royalty.",
-    heroAsk: "Raccolta di €350K",
-    heroAskLabel: "SAFE, chiusura Q2 2027",
     mEyebrow: "Dimensione di Mercato",
     mTitle: "Un mercato ampio e in rapida crescita",
     mNote: "Trainato dalla carenza strutturale di manodopera e dal reshoring. Ingresso dall'Italia, scalando in tutta Europa.",
@@ -124,17 +120,17 @@ const INV = {
       "Focus sul design di nuovi moduli",
     ],
     proceedsTitle: "Impiego dei fondi",
+    investorKitCta: "Diventa un Investitore",
     teamEyebrow: "I Founder",
     teamTitle: "Il team",
     teamSub: "Le menti che costruiscono RBT Lab: ingegneria, ricerca e strategia sotto lo stesso tetto.",
-    ctaTitle: "Costruiamo insieme il futuro della robotica collaborativa.",
-    ctaSub: "Vuoi il deck completo e la data room? Scrivici e ti accompagniamo.",
-    ctaButton: "Contattaci",
+    investorKitTitle: "Richiedi l'Investor Kit",
+    investorKitTeaser: "Richiesta di Investor Kit con Business Plan, Financial Plan e Lettera di Intenti per valutare e sottoscrivere l'investimento.",
     mailSubject: "Richiesta di investimento, RBT Lab",
   },
 } as const;
 
-export default function Investor({ lang, setLang, goHome, onContact }: { lang: Lang; setLang: (l: Lang) => void; goHome: () => void; onContact: () => void }) {
+export default function Investor({ lang, setLang, goHome, onContact }: { lang: Lang; setLang: (l: Lang) => void; goHome: () => void; onContact: (mode?: "investor" | "investorKit") => void }) {
   const t = INV[lang];
   const [activeProceed, setActiveProceed] = useState<number | null>(null);
   const [activeQuad, setActiveQuad] = useState<string | null>(null);
@@ -177,7 +173,7 @@ export default function Investor({ lang, setLang, goHome, onContact }: { lang: L
               <button className={`nc-lang-btn ${lang === "en" ? "active" : ""}`} onClick={() => setLang("en")}>EN</button>
               <button className={`nc-lang-btn ${lang === "it" ? "active" : ""}`} onClick={() => setLang("it")}>IT</button>
             </div>
-            <button className="nc-btn-get-started" onClick={onContact}>{t.contact}</button>
+            <button className="nc-btn-get-started" onClick={() => onContact()}>{t.contact}</button>
           </div>
         </div>
       </header>
@@ -190,12 +186,8 @@ export default function Investor({ lang, setLang, goHome, onContact }: { lang: L
           <span className="nc-tag-capsule"><span className="nc-tag-dot"></span>{t.heroEyebrow}</span>
           <h1 className="nc-hero-title inv-hero-title">{t.heroTitle.split(" ").slice(0, -1).join(" ")} <span className="nc-highlight-gradient">{t.heroTitle.split(" ").slice(-1)}</span></h1>
           <p className="nc-hero-subtitle inv-hero-sub">{t.heroSub}</p>
-          <button type="button" className="inv-ask-pill" onClick={scrollToInvestment}>
-            <Banknote size={20} />
-            <div>
-              <div className="inv-ask-pill-num">{t.heroAsk}</div>
-              <div className="inv-ask-pill-label">{t.heroAskLabel}</div>
-            </div>
+          <button type="button" className="nc-btn-accent inv-hero-cta" onClick={scrollToInvestment}>
+            <Banknote size={18} /> {t.investorKitCta}
           </button>
         </div>
       </section>
@@ -277,6 +269,46 @@ export default function Investor({ lang, setLang, goHome, onContact }: { lang: L
         </div>
       </section>
 
+      {/* TEAM */}
+      <section className="nc-section nc-section-alt">
+        <div className="nc-ribbon nc-ribbon-magenta" style={{ bottom: "-220px", left: "-240px" }}></div>
+        <div className="nc-container">
+          <div className="nc-sec-header">
+            <span className="nc-sec-eyebrow">{t.teamEyebrow}</span>
+            <h2 className="nc-sec-title">{t.teamTitle}</h2>
+            <p className="nc-sec-subtitle">{t.teamSub}</p>
+          </div>
+          <div className="nc-team-grid">
+            {TEAM.map((m, i) => (
+              <div
+                className={`nc-team-card${m.linkedinActive ? " nc-team-card--linked" : ""}`}
+                key={i}
+                {...(m.linkedinActive
+                  ? {
+                      role: "link",
+                      tabIndex: 0,
+                      onClick: () => window.open(m.linkedin, "_blank", "noopener,noreferrer"),
+                      onKeyDown: (e: KeyboardEvent) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          window.open(m.linkedin, "_blank", "noopener,noreferrer");
+                        }
+                      },
+                      "aria-label": `${m.name} su LinkedIn`,
+                    }
+                  : {})}
+              >
+                <div className="nc-avatar">{m.initials}</div>
+                <div>
+                  <h3 className="nc-team-name">{m.name}</h3>
+                  <p className="nc-team-role">{lang === "en" ? m.roleEn : m.roleIt}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* INVESTMENT */}
       <section id="investment" className="nc-section nc-section-base">
         <div className="nc-ribbon nc-ribbon-violet" style={{ top: "-180px", left: "-260px" }}></div>
@@ -334,58 +366,23 @@ export default function Investor({ lang, setLang, goHome, onContact }: { lang: L
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* TEAM */}
-      <section className="nc-section nc-section-alt">
-        <div className="nc-ribbon nc-ribbon-magenta" style={{ bottom: "-220px", left: "-240px" }}></div>
-        <div className="nc-container">
-          <div className="nc-sec-header">
-            <span className="nc-sec-eyebrow">{t.teamEyebrow}</span>
-            <h2 className="nc-sec-title">{t.teamTitle}</h2>
-            <p className="nc-sec-subtitle">{t.teamSub}</p>
-          </div>
-          <div className="nc-team-grid">
-            {TEAM.map((m, i) => (
-              <div
-                className={`nc-team-card${m.linkedinActive ? " nc-team-card--linked" : ""}`}
-                key={i}
-                {...(m.linkedinActive
-                  ? {
-                      role: "link",
-                      tabIndex: 0,
-                      onClick: () => window.open(m.linkedin, "_blank", "noopener,noreferrer"),
-                      onKeyDown: (e: KeyboardEvent) => {
-                        if (e.key === "Enter" || e.key === " ") {
-                          e.preventDefault();
-                          window.open(m.linkedin, "_blank", "noopener,noreferrer");
-                        }
-                      },
-                      "aria-label": `${m.name} su LinkedIn`,
-                    }
-                  : {})}
-              >
-                <div className="nc-avatar">{m.initials}</div>
-                <div>
-                  <h3 className="nc-team-name">{m.name}</h3>
-                  <p className="nc-team-role">{lang === "en" ? m.roleEn : m.roleIt}</p>
-                </div>
-              </div>
-            ))}
+          <div className="inv-kit-cta">
+            <div>
+              <h3 className="inv-kit-cta-title">{t.investorKitTitle}</h3>
+              <p className="inv-kit-cta-text">{t.investorKitTeaser}</p>
+            </div>
+            <button type="button" className="nc-btn-cta-big" onClick={() => onContact("investorKit")}>
+              {t.investorKitCta} <FileSignature size={18} />
+            </button>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <footer className="nc-cta-footer">
+      {/* FOOTER */}
+      <footer className="nc-cta-footer inv-footer">
         <div className="nc-ribbon nc-ribbon-violet" style={{ top: "-200px", left: "50%", transform: "translateX(-50%)" }}></div>
         <div className="nc-container">
-          <div className="nc-cta-box">
-            <h2 className="nc-cta-title">{t.ctaTitle}</h2>
-            <p className="nc-cta-sub" style={{ whiteSpace: "normal" }}>{t.ctaSub}</p>
-            <button className="nc-btn-cta-big" onClick={onContact}>{t.ctaButton}</button>
-          </div>
           <div className="nc-micro-footer">
             <div className="nc-footer-brand">
               <img src={lockupWhite} alt="RBT Lab" className="nc-footer-lockup" />

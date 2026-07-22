@@ -134,8 +134,10 @@ const COPY = {
     footer: { rights: "© 2026 RBT Lab. All rights reserved." },
     modal: {
       title: "Get in touch",
+      titleInvestorKit: "Request your Investor Kit",
       sub: "Tell us about your challenge and we'll explore a collaborative solution together.",
       subInvestor: "Tell us how you'd like to get involved and we'll take it from there.",
+      subInvestorKit: "Get the full picture before you commit: Business Plan, Financial Plan and Letter of Intent, ready for your review and for subscribing the investment.",
       name: "Full name",
       namePh: "Jane Doe",
       email: "Work email",
@@ -146,6 +148,8 @@ const COPY = {
       messagePh: "What would you like to talk to RBT Lab about?",
       messagePhLighthouse: "Tell us about your problem so we can understand how to solve it.",
       messagePhInvestor: "Tell us how you'd like to support RBT Lab: ticket size, expertise, or the kind of partnership you have in mind.",
+      investorKitSubject: "Investor Kit",
+      investorKitMessage: "I would like to receive the RBT Lab Investor Kit, including the Business Plan, Financial Plan and Letter of Intent, to evaluate the opportunity in detail and proceed with subscribing the investment.",
       submit: "Send request",
       sending: "Sending...",
       okTitle: "Request sent!",
@@ -232,8 +236,10 @@ const COPY = {
     footer: { rights: "© 2026 RBT Lab. Tutti i diritti riservati." },
     modal: {
       title: "Contattaci",
+      titleInvestorKit: "Richiedi il tuo Investor Kit",
       sub: "Raccontaci della tua sfida e studieremo insieme una soluzione collaborativa.",
       subInvestor: "Raccontaci come vorresti essere coinvolto e ci pensiamo noi.",
+      subInvestorKit: "Ottieni il quadro completo prima di decidere: Business Plan, Financial Plan e Lettera di Intenti, pronti per la tua valutazione e per la sottoscrizione dell'investimento.",
       name: "Nome completo",
       namePh: "Mario Rossi",
       email: "Email aziendale",
@@ -244,6 +250,8 @@ const COPY = {
       messagePh: "Di cosa vuoi parlare a RBT Lab?",
       messagePhLighthouse: "Raccontaci del tuo problema per aiutarci a capire come risolverlo.",
       messagePhInvestor: "Raccontaci come vorresti aiutarci: taglio d'investimento, competenze o il tipo di partnership che hai in mente.",
+      investorKitSubject: "Investor Kit",
+      investorKitMessage: "Vorrei ricevere l'Investor Kit di RBT Lab, comprensivo di Business Plan, Financial Plan e Lettera di Intenti, per valutare nel dettaglio l'opportunità e procedere alla sottoscrizione dell'investimento.",
       submit: "Invia richiesta",
       sending: "Invio...",
       okTitle: "Richiesta inviata!",
@@ -320,7 +328,7 @@ export default function App() {
     e.preventDefault();
     if (!formData.name || !formData.email) return;
     const title = formData.title.trim() || (lang === "it" ? "Diventare un Cliente Pilota" : "Becoming a Lighthouse Customer");
-    const subject = `Richiesta di diventare cliente pilota: ${formData.name}`;
+    const subject = title;
 
     // Preferred path: EmailJS sends two emails, the notification to RBT Lab (template_e6xxec8)
     // and the auto reply confirmation to the visitor (template_ya1elac).
@@ -378,8 +386,17 @@ export default function App() {
     </li>
   );
 
-  const [contactMode, setContactMode] = useState<"contact" | "lighthouse" | "investor">("contact");
-  const openContact = (mode: "contact" | "lighthouse" | "investor" = "contact") => { setContactMode(mode); setFormSubmitted(false); setModalOpen(true); };
+  const [contactMode, setContactMode] = useState<"contact" | "lighthouse" | "investor" | "investorKit">("contact");
+  const openContact = (mode: "contact" | "lighthouse" | "investor" | "investorKit" = "contact") => {
+    setContactMode(mode);
+    setFormSubmitted(false);
+    if (mode === "investorKit") {
+      setFormData((f) => ({ ...f, title: t.modal.investorKitSubject, message: t.modal.investorKitMessage }));
+    } else {
+      setFormData((f) => ({ ...f, title: "", message: "" }));
+    }
+    setModalOpen(true);
+  };
   const contactModal = modalOpen && (
         <div className="nc-modal-overlay" onClick={() => setModalOpen(false)}>
           <div className="nc-modal-container" onClick={(e) => e.stopPropagation()}>
@@ -403,9 +420,11 @@ export default function App() {
                 <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                     <Sparkles size={18} style={{ color: "var(--mint)" }} />
-                    <h3 style={{ fontSize: "23px", color: "#fff", fontWeight: 700, margin: 0 }}>{t.modal.title}</h3>
+                    <h3 style={{ fontSize: "23px", color: "#fff", fontWeight: 700, margin: 0 }}>{contactMode === "investorKit" ? t.modal.titleInvestorKit : t.modal.title}</h3>
                   </div>
-                  <p style={{ color: "var(--text-secondary)", fontSize: "13px", margin: 0 }}>{contactMode === "investor" ? t.modal.subInvestor : t.modal.sub}</p>
+                  <p style={{ color: "var(--text-secondary)", fontSize: "13px", margin: 0 }}>
+                    {contactMode === "investorKit" ? t.modal.subInvestorKit : contactMode === "investor" ? t.modal.subInvestor : t.modal.sub}
+                  </p>
                 </div>
 
                 <div className="nc-form-group">
@@ -420,17 +439,24 @@ export default function App() {
                     value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
                 </div>
 
-                <div className="nc-form-group">
-                  <label className="nc-form-label">{t.modal.subjectLabel}</label>
-                  <input type="text" className="nc-form-input" placeholder={t.modal.subjectPh}
-                    value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} />
-                </div>
+                {contactMode !== "investorKit" && (
+                  <>
+                    <div className="nc-form-group">
+                      <label className="nc-form-label">{t.modal.subjectLabel}</label>
+                      <input type="text" className="nc-form-input" placeholder={t.modal.subjectPh}
+                        value={formData.title}
+                        onChange={(e) => setFormData({ ...formData, title: e.target.value })} />
+                    </div>
 
-                <div className="nc-form-group">
-                  <label className="nc-form-label">{t.modal.message}</label>
-                  <textarea className="nc-form-input nc-form-textarea" rows={4} placeholder={contactMode === "investor" ? t.modal.messagePhInvestor : contactMode === "lighthouse" ? t.modal.messagePhLighthouse : t.modal.messagePh}
-                    value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
-                </div>
+                    <div className="nc-form-group">
+                      <label className="nc-form-label">{t.modal.message}</label>
+                      <textarea className="nc-form-input nc-form-textarea" rows={4}
+                        placeholder={contactMode === "investor" ? t.modal.messagePhInvestor : contactMode === "lighthouse" ? t.modal.messagePhLighthouse : t.modal.messagePh}
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
+                    </div>
+                  </>
+                )}
 
                 <button type="submit" className="nc-btn-accent" style={{ width: "100%", marginTop: "6px" }} disabled={sending}>
                   {sending ? t.modal.sending : t.modal.submit} <ArrowRight size={16} />
@@ -444,7 +470,7 @@ export default function App() {
   if (route === "investor") {
     return (
       <>
-        <Investor lang={lang} setLang={chooseLang} goHome={() => go("home")} onContact={() => openContact("investor")} />
+        <Investor lang={lang} setLang={chooseLang} goHome={() => go("home")} onContact={(mode) => openContact(mode ?? "investor")} />
         {contactModal}
       </>
     );
