@@ -50,8 +50,8 @@ const TEAM = [
   { name: "Lorenzo Baglieri", roleEn: "Chief Technical Officer & PhD in Robotics", roleIt: "Chief Technical Officer & PhD in Robotics", initials: "LB", linkedin: "https://www.linkedin.com/in/lorenzo-baglieri/", linkedinActive: true },
   { name: "Davide Calebrano", roleEn: "Chief Financial Officer", roleIt: "Chief Financial Officer", initials: "DC", linkedin: "https://www.linkedin.com/in/davidecalebrano/", linkedinActive: true },
   { name: "Giuliano Canzonieri", roleEn: "Head of Software & Embedded Engineering", roleIt: "Head of Software & Embedded Engineering", initials: "GC", linkedin: "https://www.linkedin.com/in/giuliano-canzonieri-712186251/", linkedinActive: false },
-  // { name: "Guglielmo Donzella", roleEn: "Head of Control Systems Engineering", roleIt: "Head of Control Systems Engineering", initials: "GD", linkedin: "https://www.linkedin.com/in/guglielmo-donzella-38698962/", linkedinActive: false },  // TODO: riattivare in futuro
   { name: "Silvia Treccarichi", roleEn: "Business Strategy Advisor", roleIt: "Business Strategy Advisor", initials: "ST", linkedin: "https://www.linkedin.com/in/silvia-treccarichi/", linkedinActive: true },
+  // { name: "Guglielmo Donzella", roleEn: "Head of Control Systems Engineering", roleIt: "Head of Control Systems Engineering", initials: "GD", linkedin: "https://www.linkedin.com/in/guglielmo-donzella-38698962/", linkedinActive: false },  // TODO: riattivare in futuro — posizionato dopo Silvia per restare in basso a destra (Silvia centro, Guglielmo dx) nella griglia a 3 colonne
 ];
 
 const COPY = {
