@@ -65,7 +65,7 @@ const INV = {
     amountLabel: "Round size",
     objTitle: "Primary objectives",
     objectives: [
-      "PoC validated with Centro Seia (TRL 5 to TRL 7)",
+      "Robotic seeder validated in the field, from TRL 5 to TRL 7",
       "Key hires across engineering and operations",
       "5 installations during 2027",
       "Focus on new modules design",
@@ -114,7 +114,7 @@ const INV = {
     amountLabel: "Dimensione round",
     objTitle: "Obiettivi primari",
     objectives: [
-      "PoC validato con Centro Seia (da TRL 5 a TRL 7)",
+      "Seminatore robotico validato sul campo, da TRL 5 a TRL 7",
       "Assunzioni chiave tra ingegneria e operations",
       "5 installazioni nel 2027",
       "Focus sul design di nuovi moduli",
